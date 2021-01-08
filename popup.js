@@ -1,26 +1,37 @@
-function show_image(width, height, alt) {
-    var jqxhr = $.getJSON( "https://meme-api.herokuapp.com/gimme", function() {
-        console.log( "success" );
-      })
-        .done(function() {
-          console.log( "second success" );
-          console.log(jqxhr.responseJSON.url);
-        })
-        .fail(function() {
-          console.log( "error" );
-        })
-        .always(function() {
-            console.log( "complete" );
-            var img = document.createElement("img");
-            img.src = jqxhr.responseJSON.url;
-            img.width = width;
-            img.height = height;
-            img.alt = alt;
-            //This next line will just add it to the <body> tag
-            document.body.appendChild(img);
-        });
+function show_image(url, width, height, alt) {
+    fetch(url)
+    .then(response => 
+      response.json()
+    )
+    .then(content => {
+              //  data, pagination, meta
+              console.log(content)
+              console.log( "complete" );
+              console.log(url)
+              var img = document.createElement("img");
+  
+              img.src = content.data[0].images.downsized.url;
+              img.alt = content.data[0].title;
+              img.width = width;
+              img.height = height;
+              document.body.appendChild(img);
+            })
+            .catch(err => {
+              console.error(err);
+            });
 }
+            
+           
 var checkPageButton = document.getElementById('clickIt');
 checkPageButton.addEventListener('click', function() {
-    show_image(300,   250, 'Da Meme')
+
+  var title;
+  var url
+  chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
+     title = tabs[0].title;
+     console.log(title);
+     url=`https://api.giphy.com/v1/gifs/search?api_key=BDPG7aziSZkwiwysYjAdc1v6LutK2Y51&q=${title}&limit=25&offset=0&rating=g&lang=en`
+     show_image(url,300,   250, 'Da Meme')
+
+  });
 }, false);
