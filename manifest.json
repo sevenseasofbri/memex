@@ -26,7 +26,7 @@
 ],
 "background": {
   "scripts": ["background.js"],    
-   "persistent": false 
+   "persistent": true 
 },
 "permissions": [
   "activeTab",
@@ -34,6 +34,6 @@
     "storage"
 ],
 
-"content_security_policy": "script-src 'self' https://ajax.googleapis.com https://stackpath.bootstrapcdn.com; object-src 'self'"
+"content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
 
 }
