@@ -22,9 +22,8 @@ function show_image(url, width, height, alt) {
 }
             
            
-var checkPageButton = document.getElementById('clickIt');
-checkPageButton.addEventListener('click', function() {
-
+// var checkPageButton = document.getElementById('clickIt');
+document.addEventListener('DOMContentLoaded', function() {
   var title;
   var url
   chrome.tabs.query({ currentWindow: true, active: true }, function (tabs) {
