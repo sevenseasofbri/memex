@@ -12,6 +12,6 @@
   "https://meme-api.herokuapp.com/gimme"
 ],
 
-"content_security_policy": "script-src 'self' https://ajax.googleapis.com https://stackpath.bootstrapcdn.com; object-src 'self'"
+"content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
 
 }

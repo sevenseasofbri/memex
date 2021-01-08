@@ -13,7 +13,7 @@ function show_image(memeQueryUrl, width, height, alt) {
           
           document.body.appendChild(img);
           var text = document.createElement("small");                   
-          var t = document.createTextNode(`by u/${jqxhr.responseJSON.author} from r/${jqxhr.responseJSON.subreddit}`);      
+          var t = document.createTextNode(`by u/${jqxhr.responseJSON.author} from r/${jqxhr.responseJSON}`);      
           text.appendChild(t);                                          
           document.getElementById("myDIV").appendChild(text); 
         })
