@@ -9,20 +9,21 @@ function show_image(url, width, height, alt) {
               console.log( "complete" );
               console.log(url)
               var img = document.createElement("img");
-  
-              img.src = content.data[0].images.downsized.url;
-              img.alt = content.data[0].title;
+              var len= content.data.length;
+              var inst= getRandomInt(len)
+              
+              img.src = content.data[inst].images.downsized.url;
+              img.alt = content.data[inst].title;
               img.width = width;
               img.height = height;
-              document.body.appendChild(img);
+              document.body.appendChild(img);             
             })
             .catch(err => {
               console.error(err);
             });
 }
             
-           
-// var checkPageButton = document.getElementById('clickIt');
+          
 document.addEventListener('DOMContentLoaded', function() {
   var title;
   var url
@@ -31,6 +32,15 @@ document.addEventListener('DOMContentLoaded', function() {
      console.log(title);
      url=`https://api.giphy.com/v1/gifs/search?api_key=BDPG7aziSZkwiwysYjAdc1v6LutK2Y51&q=${title}&limit=25&offset=0&rating=g&lang=en`
      show_image(url,300,   250, 'Da Meme')
-
   });
 }, false);
+
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+// chrome.runtime.sendMessage({
+//   message:"ready"              
+// })
+
