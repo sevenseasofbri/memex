@@ -22,6 +22,8 @@
 - Chromeos: "Ctrl+Shift+U",
 - Linux: "Ctrl+Shift+J"
 
+## Install Memex Chrome Extension from the [Chrome Web Store!](https://chrome.google.com/webstore/detail/memex/jmejlldkplipfacidogapfoemeponabf)
+
 ## Open Source API used :
 
 - [Giphy API](https://developers.giphy.com/)
